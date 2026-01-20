@@ -20,6 +20,7 @@ class AnswerButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         ansText,
+        textAlign: TextAlign.center,
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
     );
