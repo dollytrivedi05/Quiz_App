@@ -45,7 +45,7 @@ class _QuestionsState extends State<QuestionsScreen> {
             SizedBox(height: 30),
             ...currentquestion.getshuffledanswers().map((answer) {
               return AnswerButton(
-                ansText: answer,
+                text: answer,
                 onTap: () {
                   changeQuestion(answer);
                 },

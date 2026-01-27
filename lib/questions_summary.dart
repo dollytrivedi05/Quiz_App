@@ -22,11 +22,22 @@ class QuestionsSummary extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: .start,
                   children: [
-                    Text(
-                      ((data['question_number'] as int) + 1).toString(),
-                      style: const TextStyle(
-                        fontWeight: .bold,
-                        color: Colors.black,
+                    Container(
+                      width: 30,
+                      height: 30,
+                      alignment: .center,
+                      decoration: BoxDecoration(
+                        color: data['user_asnwer'] == data['correct_answer']
+                            ? const Color.fromARGB(255, 17, 126, 71)
+                            : Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        ((data['question_number'] as int) + 1).toString(),
+                        style: const TextStyle(
+                          fontWeight: .bold,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 8),
