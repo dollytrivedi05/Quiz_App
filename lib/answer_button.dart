@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/models/quiz_questions.dart';
 
 class AnswerButton extends StatelessWidget {
-  const AnswerButton({super.key, required this.ansText, required this.onTap});
-  final String ansText;
+  const AnswerButton({super.key, required this.text, required this.onTap});
+  final String text;
   final void Function() onTap;
 
   @override
@@ -19,8 +20,9 @@ class AnswerButton extends StatelessWidget {
       ),
       onPressed: onTap,
       child: Text(
-        ansText,
+        text,
         textAlign: TextAlign.center,
+
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
     );
