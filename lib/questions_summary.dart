@@ -8,22 +8,28 @@ class QuestionsSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        for (final data in summaryData)
-          Row(
-            children: [
-              Text(((data['questionNumber'] as int) + 1).toString()),
-              Column(
+      children: List.generate(summaryData.length, (index) {
+        final data = summaryData[index];
+
+        return Row(
+          crossAxisAlignment: .start,
+          children: [
+            Text(((data['questionNumber'] as int) + 1).toString()),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: .start,
                 children: [
                   Text(data['question'] as String),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(data['userAnswer'] as String),
                   Text(data['correctAnswer'] as String),
                 ],
               ),
-            ],
-          ),
-      ],
+            ),
+          ],
+        );
+      }),
     );
   }
 }
