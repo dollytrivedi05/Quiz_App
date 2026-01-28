@@ -24,7 +24,7 @@ class _QuestionsState extends State<QuestionsScreen> {
 
   @override
   Widget build(context) {
-    final currentquestion = questions[currentQuestionIndex];
+    final currentQuestion = questions[currentQuestionIndex];
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -35,7 +35,7 @@ class _QuestionsState extends State<QuestionsScreen> {
           children: [
             Text(
               textAlign: TextAlign.center,
-              currentquestion.question,
+              currentQuestion.question,
               style: GoogleFonts.tinos(
                 color: Colors.white,
                 fontSize: 20,
@@ -43,14 +43,12 @@ class _QuestionsState extends State<QuestionsScreen> {
               ),
             ),
             SizedBox(height: 30),
-            ...currentquestion.getshuffledanswers().map((answer) {
-              return AnswerButton(
-                ansText: answer,
-                onTap: () {
-                  changeQuestion(answer);
-                },
-              );
-            }),
+            ...currentQuestion.getShuffledAnswers().map(
+              (answer) => AnswerButton(
+                text: answer,
+                onTap: () => changeQuestion(answer),
+              ),
+            ),
           ],
         ),
       ),

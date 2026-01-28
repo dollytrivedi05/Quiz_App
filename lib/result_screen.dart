@@ -11,10 +11,10 @@ class ResultScreen extends StatelessWidget {
 
     for (var i = 0; i < chooseAnswer.length; i++) {
       summary.add({
-        'question_number': i,
+        'questionNumber': i,
         'question': questions[i].question,
-        'correct_answer': questions[i].answers[0],
-        'user_asnwer': chooseAnswer[i],
+        'correctAnswer': questions[i].answers[0],
+        'userAnswer': chooseAnswer[i],
       });
     }
     return summary;
@@ -29,7 +29,7 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("You aanswered X out Y questions correclty ! "),
+            Text("You answered X out Y questions correctly!"),
             SizedBox(height: 30),
             QuestionsSummary(getSummaryData()),
             SizedBox(height: 30),
