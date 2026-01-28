@@ -12,7 +12,7 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("You aanswered X out Y questions correclty ! "),
+            Text("You answered X out Y questions correclty ! "),
             SizedBox(height: 30),
             Text("List of answers..."),
             SizedBox(height: 30),
