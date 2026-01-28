@@ -30,8 +30,8 @@ class _QuestionsState extends State<QuestionsScreen> {
       child: Container(
         margin: EdgeInsets.all(40),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: .center,
+          crossAxisAlignment: .stretch,
           children: [
             Text(
               textAlign: TextAlign.center,

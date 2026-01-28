@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  const ResultScreen({super.key, required this.chooseAnswer});
+  final List<String> chooseAnswer;
+
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < chooseAnswer.length; i++) {
+      summary.add({
+        'questionNumber': i,
+        'question': questions[i].question,
+        'correctAnswer': questions[i].answers[0],
+        'userAnswer': chooseAnswer[i],
+      });
+    }
+    return summary;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +29,24 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("You answered X out Y questions correclty ! "),
+            Text("You answered X out Y questions correctly!"),
             SizedBox(height: 30),
-            Text("List of answers..."),
+            QuestionsSummary(getSummaryData()),
             SizedBox(height: 30),
-            OutlinedButton(onPressed: () {}, child: Text("Restart Quiz!")),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Colors.white, width: 2),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Restart Quiz!",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),
