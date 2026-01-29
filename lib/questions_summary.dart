@@ -15,57 +15,57 @@ class QuestionsSummary extends StatelessWidget {
       width: 300,
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            for (final data in summaryData)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      ((data['question_number'] as int) + 1).toString(),
-                      style: const TextStyle(
-                        fontWeight: .bold,
-                        color: Colors.black,
-                      ),
+          children: List.generate(summaryData.length, (index) {
+            final data = summaryData[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                crossAxisAlignment: .start,
+                children: [
+                  Text(
+                    ((data['questionNumber'] as int) + 1).toString(),
+                    style: const TextStyle(
+                      fontWeight: .bold,
+                      color: Colors.black,
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: .start,
-                        children: [
-                          Text(
-                            data['question'] as String,
-                            style: GoogleFonts.tinos(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: .bold,
-                            ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: .start,
+                      children: [
+                        Text(
+                          data['question'] as String,
+                          style: GoogleFonts.tinos(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: .bold,
                           ),
-                          SizedBox(height: 5),
-                          Text(
-                            'Your answer: ${data['user_asnwer']}',
-                            style: GoogleFonts.tinos(
-                              color: const Color.fromARGB(255, 189, 16, 16),
-                              fontSize: 14,
-                              fontWeight: .bold,
-                            ),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Your answer: ${data['userAsnwer']}',
+                          style: GoogleFonts.tinos(
+                            color: const Color.fromARGB(255, 189, 16, 16),
+                            fontSize: 14,
+                            fontWeight: .bold,
                           ),
-                          Text(
-                            'Correct answer: ${data['correct_answer']}',
-                            style: GoogleFonts.tinos(
-                              color: const Color.fromARGB(255, 15, 121, 85),
-                              fontSize: 14,
-                              fontWeight: .bold,
-                            ),
+                        ),
+                        Text(
+                          'Correct answer: ${data['correctAnswer']}',
+                          style: GoogleFonts.tinos(
+                            color: const Color.fromARGB(255, 15, 121, 85),
+                            fontSize: 14,
+                            fontWeight: .bold,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-          ],
+            );
+          }),
         ),
       ),
     );

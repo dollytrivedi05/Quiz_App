@@ -16,10 +16,10 @@ class ResultScreen extends StatelessWidget {
 
     for (var i = 0; i < chooseAnswer.length; i++) {
       summary.add({
-        'question_number': i,
+        'questionNumber': i,
         'question': questions[i].question,
-        'correct_answer': questions[i].answers[0],
-        'user_asnwer': chooseAnswer[i],
+        'correctAnswer': questions[i].answers[0],
+        'userAnswer': chooseAnswer[i],
       });
     }
     return summary;
@@ -30,7 +30,7 @@ class ResultScreen extends StatelessWidget {
     final summaryData = getSummaryData();
     final totalQuestions = questions.length;
     final correctQuestions = summaryData
-        .where((data) => data['user_asnwer'] == data['correct_answer'])
+        .where((data) => data['userAnswer'] == data['correctAnswer'])
         .length;
 
     return SizedBox(
@@ -62,7 +62,7 @@ class ResultScreen extends StatelessWidget {
                 "Restart Quiz!",
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: .bold,
                   color: const Color.fromARGB(255, 144, 32, 189),
                 ),
               ),
