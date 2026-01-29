@@ -14,10 +14,10 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizState extends State<QuizScreen> {
-  String activeScreen = 'start-screen';
+  String activeScreen = 'startScreen';
   void switchScreen() {
     setState(() {
-      activeScreen = 'question-screen';
+      activeScreen = 'questionScreen';
     });
   }
 
@@ -27,7 +27,7 @@ class _QuizState extends State<QuizScreen> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = 'result-screen';
+        activeScreen = 'resultScreen';
       });
     }
   }
@@ -35,17 +35,17 @@ class _QuizState extends State<QuizScreen> {
   void restartQuiz() {
     setState(() {
       selectedAnswers = [];
-      activeScreen = 'question-screen';
+      activeScreen = 'questionScreen';
     });
   }
 
   @override
   Widget build(context) {
     Widget screenWidget = StartScreen(switchScreen);
-    if (activeScreen == 'question-screen') {
+    if (activeScreen == 'questionScreen') {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
     }
-    if (activeScreen == 'result-screen') {
+    if (activeScreen == 'resultScreen') {
       screenWidget = ResultScreen(
         chooseAnswer: selectedAnswers,
         onRestart: restartQuiz,
@@ -61,8 +61,8 @@ class _QuizState extends State<QuizScreen> {
                 const Color.fromARGB(255, 116, 197, 197),
                 const Color.fromARGB(255, 163, 238, 243),
               ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              begin: .topLeft,
+              end: .bottomRight,
             ),
           ),
           child: screenWidget,
