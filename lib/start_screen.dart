@@ -9,7 +9,7 @@ class StartScreen extends StatelessWidget {
   Widget build(context) {
     return Center(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Image.asset(
             'assets/images/quiz-logo.png',
@@ -25,20 +25,15 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: () => startQuiz(),
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
+              foregroundColor: const Color.fromARGB(255, 29, 131, 97),
               side: BorderSide(color: Colors.white, width: 2),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
+              shape: RoundedRectangleBorder(borderRadius: .circular(10)),
             ),
             icon: Icon(Icons.arrow_right_alt, size: 30),
 
             label: Text(
               "Start Quiz",
-              style: GoogleFonts.lato(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.lato(fontSize: 20, fontWeight: .bold),
             ),
           ),
         ],

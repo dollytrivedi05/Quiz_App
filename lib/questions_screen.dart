@@ -34,12 +34,12 @@ class _QuestionsState extends State<QuestionsScreen> {
           crossAxisAlignment: .stretch,
           children: [
             Text(
-              textAlign: TextAlign.center,
+              textAlign: .center,
               currentQuestion.question,
               style: GoogleFonts.tinos(
                 color: Colors.white,
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontWeight: .bold,
               ),
             ),
             SizedBox(height: 30),
