@@ -22,11 +22,22 @@ class QuestionsSummary extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: .start,
                 children: [
-                  Text(
-                    ((data['questionNumber'] as int) + 1).toString(),
-                    style: const TextStyle(
-                      fontWeight: .bold,
-                      color: Colors.black,
+                  Container(
+                    width: 30,
+                    height: 30,
+                    alignment: .center,
+                    decoration: BoxDecoration(
+                      color: data['userAnswer'] == data['correctAnswer']
+                          ? const Color.fromARGB(255, 17, 126, 71)
+                          : Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      ((data['questionNumber'] as int) + 1).toString(),
+                      style: const TextStyle(
+                        fontWeight: .bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -44,7 +55,7 @@ class QuestionsSummary extends StatelessWidget {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          'Your answer: ${data['userAsnwer']}',
+                          'Your answer: ${data['userAnswer']}',
                           style: GoogleFonts.tinos(
                             color: const Color.fromARGB(255, 189, 16, 16),
                             fontSize: 14,
